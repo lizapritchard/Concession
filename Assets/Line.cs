@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Line : MonoBehaviour
@@ -10,6 +11,7 @@ public class Line : MonoBehaviour
     public Vector3 endOfLine;
     public float orderDespawnTime = 5;
     public TMPro.TMP_Text text;
+    public int maxLineLength = 10;
 
     public void add(Character character) {
         character.addedToLine = true;
@@ -19,6 +21,14 @@ public class Line : MonoBehaviour
         // Implicitly means there can't be an order in orderCHecker
         if (characters.Count <= 1) {
             move();
+        }
+    }
+
+    private void Update()
+    {
+        if (characters.Count > maxLineLength)
+        {
+            GameOver();
         }
     }
 
@@ -70,6 +80,13 @@ public class Line : MonoBehaviour
 
         yield return new WaitForSeconds(orderDespawnTime);
         text.text = "";
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("you lose :(");
+        RandomController.Reset();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 

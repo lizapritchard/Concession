@@ -96,4 +96,19 @@ public class RandomController : MonoBehaviour
         }
         return mapping;
     }
+
+    public static void Reset()
+    {
+        clothesList = new List<string>();
+        donutAttributes = new List<string>();
+        foodToClothes = new Dictionary<string, string>();
+
+        possibleClothesColors = new List<string>();
+        possibleFoodColors = new List<string>();
+
+        foodColorToShirtColor = new Dictionary<string, string>();
+        foodColorToPantsColor = new Dictionary<string, string>();
+        clothToColorsToFoodColors = new Dictionary<string, Dictionary<string, string>>();
+        strColorToColor = new Dictionary<string, Color>();
+}
 }

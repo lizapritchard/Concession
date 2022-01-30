@@ -1,12 +1,15 @@
 ﻿<Properties StartupConfiguration="{E30C2A5E-F1B6-94E3-3219-FCB6389B61A7}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OrderChecker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RandomController.cs">
     <Files>
       <File FileName="Assets/Scripts/SimpleCameraController.cs" Line="1" Column="1" />
       <File FileName="Assets/Button.cs" Line="1" Column="1" />
-      <File FileName="Assets/Line.cs" Line="10" Column="30" />
+      <File FileName="Assets/Line.cs" Line="29" Column="10" />
       <File FileName="Assets/Character.cs" Line="18" Column="20" />
       <File FileName="Assets/SpawnOptions.cs" Line="1" Column="1" />
-      <File FileName="Assets/OrderChecker.cs" Line="1" Column="1" />
+      <File FileName="Assets/OrderChecker.cs" Line="48" Column="45" />
+      <File FileName="Assets/CharacterCreator.cs" Line="98" Column="34" />
+      <File FileName="Assets/Highlightable.cs" Line="1" Column="1" />
+      <File FileName="Assets/RandomController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +17,7 @@
           <Node name="Concession" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True" />
-              <Node name="OrderChecker.cs" selected="True" />
+              <Node name="RandomController.cs" selected="True" />
             </Node>
           </Node>
         </State>
