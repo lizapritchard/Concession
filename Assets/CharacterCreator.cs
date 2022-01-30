@@ -31,7 +31,7 @@ public struct CharacterInfo {
         clothColor = cl_in;
         foodAttr = f_in;
         foodColor = fo_in;
-        shouldSayFoodColor = false;
+        shouldSayFoodColor = true;
     }
 }
 
@@ -122,7 +122,6 @@ public class CharacterCreator : MonoBehaviour {
         charComponent.changeClothesColor(changes);
         // intialize human with 100% order telling and feedback
         // add character to the line
-        Debug.Log(charComponent);
         line.add(charComponent);
     }
 }

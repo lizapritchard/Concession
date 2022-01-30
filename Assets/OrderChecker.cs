@@ -6,11 +6,13 @@ public class OrderChecker : MonoBehaviour
 {
     public bool hasNextOrder = false;
     public List<CharacterInfo> nextOrder;
+    public SpawnOptions spawnOptions;
     public Line line;
 
     public void setNextOrder(List<CharacterInfo> characterInfos_in) {
         hasNextOrder = true;
         nextOrder = characterInfos_in;
+        spawnOptions.createDonut();
     }
     IEnumerator waitABit(Collision collision) {
         yield return new WaitForSeconds(2);
@@ -20,8 +22,16 @@ public class OrderChecker : MonoBehaviour
 
     // TODO when creating food make sure it has tag food
     void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "food") {
+        if (collision.gameObject.tag == "food" && hasNextOrder) {
             hasNextOrder = false;
+            StartCoroutine(waitABit(collision));
+        }
+    }
+    void OnCollisionStay(Collision collision) {
+        Debug.Log("working");
+        if (collision.gameObject.tag == "food" && hasNextOrder) {
+            hasNextOrder = false;
+            Debug.Log("when");
             StartCoroutine(waitABit(collision));
         }
     }

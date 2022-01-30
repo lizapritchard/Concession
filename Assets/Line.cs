@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Line : MonoBehaviour
 {
     public OrderChecker orderChecker;
     public Queue<Character> characters = new Queue<Character>();
     public Vector3 endOfLine;
+    public float orderDespawnTime = 5;
+    public TMPro.TMP_Text text;
 
     public void add(Character character) {
         character.addedToLine = true;
@@ -41,8 +44,32 @@ public class Line : MonoBehaviour
     public void sendNextCharacter() {
         if (characters.Count > 0) {
             orderChecker.setNextOrder(characters.Peek().charInfo);
-            characters.Peek().sayOrder();
+            StartCoroutine(OrderSaid(characters.Peek().charInfo));
         }
+    }
+
+    public IEnumerator OrderSaid(List<CharacterInfo> characterInfo) {
+        string order = @"";
+        order += "I want a donut with\n";
+        text.text = order;
+        yield return new WaitForSeconds(1);
+        for (int i = 0; i < characterInfo.Count; i++)
+        {
+            var item = characterInfo[i];
+            if (item.shouldSayFoodColor) {
+                order += item.foodColor;
+            }
+            order += " " + item.foodAttr;
+            if (i != characterInfo.Count - 1) {
+                order += " and\n";
+            }
+            yield return new WaitForSeconds(.5f);
+            text.text = order;
+        }
+
+
+        yield return new WaitForSeconds(orderDespawnTime);
+        text.text = "";
     }
 }
 

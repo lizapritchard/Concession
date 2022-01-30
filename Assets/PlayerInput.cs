@@ -35,7 +35,7 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForSeconds(amount);
         createdFood = false;
     }
-    void createDonut(List<DonutInfo> donutInfo) {
+    public void createDonut(List<DonutInfo> donutInfo) {
         GameObject donut = Instantiate(donutRef, placeToDropOrder, Quaternion.identity);
         // set colors
         donut.SetActive(true);

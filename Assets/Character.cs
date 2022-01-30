@@ -76,14 +76,6 @@ public class Character : MonoBehaviour {
         }
         charInfo = charInfoList;
     }
-    // TODO say order
-    public void sayOrder() {
-        Debug.Log("I want a donut with ");
-        foreach (var item in charInfo)
-        {
-            Debug.Log(item.foodColor + " " + item.foodAttr + " and ...");
-        }
-    }
     // TODO tell animator moving so it can switch animations
     // TODO Add box colliders for each player
     public void setShouldTryMove(bool input) {
