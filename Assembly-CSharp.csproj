@@ -36,11 +36,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Food.cs" />
+     <Compile Include="Assets\Line.cs" />
      <Compile Include="Assets\Oculus Hands Physics\Scripts\HandPresence.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+     <Compile Include="Assets\PlayerInput.cs" />
+     <Compile Include="Assets\OrderChecker.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\rootmotion.cs" />
-     <Compile Include="Assets\testing.cs" />
+     <Compile Include="Assets\RandomController.cs" />
+     <Compile Include="Assets\CharacterCreator.cs" />
+     <Compile Include="Assets\Character.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.25f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
