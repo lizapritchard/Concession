@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OrderChecker : MonoBehaviour
 {
+    public AudioSource correct;
+    public AudioSource incorrect;
     public bool hasNextOrder = false;
     public List<CharacterInfo> nextOrder;
     public SpawnOptions spawnOptions;
@@ -43,15 +45,18 @@ public class OrderChecker : MonoBehaviour
             {
                 if (food_ordered.foodAttr.Equals(made_food.attr)) {
                     if (!made_food.strColor.Equals(food_ordered.foodColor)) {
-                        Debug.Log("FALSE");
+                        Debug.Log("incorrect");
                         Debug.Log(made_food.strColor);
                         Debug.Log(food_ordered.foodColor);
                         Debug.Log(food_ordered.foodAttr);
+                        incorrect.Play();
+                        return;
                     }
                 }
             }
         }
-        Debug.Log("TRUE");
+        correct.Play();
+        Debug.Log("correct");
         line.popAndMove();
     }
 }
