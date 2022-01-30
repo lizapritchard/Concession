@@ -19,18 +19,14 @@ public class Food : MonoBehaviour
     public Material frosting;
     public List<DonutInfo> donutInfo;
     public Dictionary<string, Material> strFoodToMat = new Dictionary<string, Material>();
+
     public void setColors(List<DonutInfo> donutInfo_in) {
+        strFoodToMat.Add("frosting", frosting);
+        strFoodToMat.Add("sprinkles", sprinkles);
         donutInfo = donutInfo_in;
         foreach (var item in donutInfo)
         {
             strFoodToMat[item.attr].color = item.color;
         }
     }
-
-
-    void Start() {
-        strFoodToMat.Add("frosting", frosting);
-        strFoodToMat.Add("sprinkles", sprinkles);
-    }
-
 }

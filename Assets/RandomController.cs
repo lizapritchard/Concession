@@ -45,8 +45,8 @@ public class RandomController : MonoBehaviour
 
         // Create mappings of clothes to food and ccolor to fcolor
         foodToClothes = GenericRandomMapping(donutAttributes, clothesList);
-        foodColorToShirtColor = GenericRandomMapping(possibleClothesColors, possibleFoodColors);
-        foodColorToPantsColor = GenericRandomMapping(possibleClothesColors, possibleFoodColors);
+        foodColorToShirtColor = GenericRandomMapping(possibleFoodColors, possibleClothesColors);
+        foodColorToPantsColor = GenericRandomMapping(possibleFoodColors, possibleClothesColors);
         
         
         clothToColorsToFoodColors.Add("shirt", foodColorToShirtColor);

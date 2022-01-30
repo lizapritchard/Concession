@@ -5,9 +5,12 @@ using UnityEngine;
 public class Line : MonoBehaviour
 {
     public OrderChecker orderChecker;
-    public Queue<Character> characters;
+    public Queue<Character> characters = new Queue<Character>();
+    public Vector3 endOfLine;
 
     public void add(Character character) {
+        character.addedToLine = true;
+        character.setTarget(endOfLine);
         character.gameObject.transform.parent = transform;
         characters.Enqueue(character);
         // Implicitly means there can't be an order in orderCHecker
@@ -35,7 +38,7 @@ public class Line : MonoBehaviour
 
     // TODO add collider for them to collide with
     // Called when a new character collides
-    void sendNextCharacter() {
+    public void sendNextCharacter() {
         if (characters.Count > 0) {
             orderChecker.setNextOrder(characters.Peek().charInfo);
             characters.Peek().sayOrder();

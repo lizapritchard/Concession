@@ -59,6 +59,9 @@ public class CharacterCreator : MonoBehaviour {
     // 5. keep appending what isn't omitted
     // Start is called before the first frame update
 
+
+        // Creates a material from shader and texture references.
+
     void Update() {
         if (startSpawning) {
             if (timeElapsed >= spawnRate) {
@@ -101,7 +104,11 @@ public class CharacterCreator : MonoBehaviour {
                 // get associated cloth
                 string cloth = RandomController.foodToClothes[attrs[i]];
                 // get cloth color associated with rngFoodColor
-
+                // Debug.Log(cloth);
+                // Debug.Log(rngFoodColor);
+                // Debug.Log( RandomController.clothToColorsToFoodColors[cloth]["white"]);
+                // Debug.Log( RandomController.clothToColorsToFoodColors[cloth]["magenta"]);
+                // Debug.Log( RandomController.clothToColorsToFoodColors[cloth]["yellow"]);
                 string clothColor = RandomController.clothToColorsToFoodColors[cloth][rngFoodColor];
                 clothToColor.Add(cloth, clothColor);
                 CharacterInfo temp1 = new CharacterInfo(cloth, clothColor, attrs[i], rngFoodColor);
@@ -115,6 +122,7 @@ public class CharacterCreator : MonoBehaviour {
         charComponent.changeClothesColor(changes);
         // intialize human with 100% order telling and feedback
         // add character to the line
+        Debug.Log(charComponent);
         line.add(charComponent);
     }
 }
